@@ -1,0 +1,31 @@
+# Sass
+#.sass-cache
+#.scssc
+
+# Diffs
+*.orig
+
+# Package Managers
+/bower_components
+/node_modules
+npm-debug.log
+
+# IDE
+/.idea
+
+# Other
+#.grunt
+#.vagrant
+
+# OS
+*.DS_Store
+
+# Generated Documentation
+/docs
+
+# Material Design
+#/fonts/MaterialIcons-Regular.eot
+#/fonts/MaterialIcons-Regular.woff2
+#/fonts/MaterialIcons-Regular.woff
+#/fonts/MaterialIcons-Regular.ttf
+*~HEAD
