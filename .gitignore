@@ -6,7 +6,7 @@
 *.orig
 
 # Package Managers
-/bower_components
+/public/bower_components
 /node_modules
 npm-debug.log
 
