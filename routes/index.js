@@ -44,9 +44,14 @@ router.get('/', function(req, res, next) {
 
 router.get('/phones', function(req, res) {
   var params = qs_to_json(req.originalUrl);
-  var db = req.db;
-  var collection = db.get('phones');
-  collection.find(params, {}, function(e, docs){
+  req.db.get('phones').find(params, {}, function(e, docs){
+    res.send(docs);
+  });
+});
+
+router.get('/phones/:id', function(req, res) {
+  console.dir(req.params);
+  req.db.get('phones').find(req.params, {}, function(e, docs){
     res.send(docs[0]);
   });
 });
