@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongo = require('mongodb');
-var db = require('monk')('localhost:27017/test');
+var db = require('monk2')('localhost:27017/test');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
