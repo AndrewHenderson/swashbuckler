@@ -14,13 +14,7 @@
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
-          <a href="#/users/{{phone._id}}" class="thumb"><img ng-src="{{phone.imageUrl}}"></a>
-          <a href="#/users/{{phone._id}}">{{phone.name}}</a>
-          <p>{{phone.snippet}}</p>
-        </li>
-      </ul>
+      <users></users>
 
     </div>
   </div>

@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-var phonecatControllers = angular.module('phonecatControllers', []);
+var phonecatControllers = angular.module('phonecatControllers', ['phonecatServices']);
 
 phonecatControllers.controller('PhoneListCtrl', ['$scope', '$routeParams', 'Phones',
   function($scope, $routeParams, Phones) {

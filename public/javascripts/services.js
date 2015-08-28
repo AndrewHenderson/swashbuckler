@@ -14,6 +14,6 @@ phonecatServices.factory('Phones', ['$resource',
 
 phonecatServices.factory('Phone', ['$resource',
   function($resource){
-    return $resource('/json/persons/:id', {id:'@id'});
+    return $resource('/json/persons/:id');
   }
 ]);

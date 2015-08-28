@@ -4,9 +4,8 @@
 
 var app = angular.module('app', [
   'ngRoute',
-  'phonecatControllers',
   'phonecatFilters',
-  'phonecatServices',
+  'phonecatControllers',
   'components'
 ]);
 
@@ -14,16 +13,11 @@ app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/users', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'PhoneListCtrl'
+        templateUrl: 'partials/phone-list.html'
       }).
       when('/users/:id', {
         templateUrl: 'partials/phone-detail.html',
         controller: 'PhoneDetailCtrl'
-      }).
-      when('/beers', {
-        templateUrl: 'partials/beer-list.html',
-        controller: 'BeerCounterCtrl'
       }).
       otherwise({
         redirectTo: '/users'

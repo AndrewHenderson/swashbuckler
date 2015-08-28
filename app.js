@@ -9,8 +9,6 @@ mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
-var routes = require('./routes/index');
-
 var app = express();
 
 // view engine setup
@@ -31,7 +29,7 @@ app.use(function(req, res, next){
   next();
 });
 
-app.use('/', routes);
+app.use('/', require('./routes/index'));
 app.use('/json/persons', require('./json/persons'));
 
 // catch 404 and forward to error handler
