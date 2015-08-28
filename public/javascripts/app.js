@@ -13,11 +13,11 @@ var app = angular.module('app', [
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/phones', {
+      when('/users', {
         templateUrl: 'partials/phone-list.html',
         controller: 'PhoneListCtrl'
       }).
-      when('/phones/:id', {
+      when('/users/:id', {
         templateUrl: 'partials/phone-detail.html',
         controller: 'PhoneDetailCtrl'
       }).
@@ -26,6 +26,6 @@ app.config(['$routeProvider',
         controller: 'BeerCounterCtrl'
       }).
       otherwise({
-        redirectTo: '/phones'
+        redirectTo: '/users'
       });
   }]);

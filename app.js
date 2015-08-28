@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongo = require('mongodb');
-var db = require('monk2')('localhost:27017/test');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -31,7 +32,7 @@ app.use(function(req, res, next){
 });
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/json/persons', require('./json/persons'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
