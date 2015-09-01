@@ -11,31 +11,26 @@ router.get('/', function(req, res) {
   });
 });
 
+/* POST to Add User Service */
+router.post('/', function(req, res) {
+
+  var person = new Person(req.body);
+
+  console.dir(person);
+
+  //person.save(function (err) {
+  //  console.log(err);
+  //  if (err) {
+  //    console.log('Bummer');
+  //  } else {
+  //    console.log('Hello!');
+  //  }
+  //});
+});
+
 router.get('/:id', function(req, res) {
   Person.findOne({_id: req.params.id}, function(err, user){
     res.send(user);
-  });
-});
-
-/* POST to Add User Service */
-router.post('/phones', function(req, res) {
-
-  // Set our internal DB variable
-  var db = req.db;
-
-  // Set our collection
-  var collection = db.get('phones');
-
-  // Submit to the DB
-  collection.insert(req.body, function (err, doc) {
-    if (err) {
-      // If it failed, return error
-      res.send("There was a problem adding the information to the database.");
-    }
-    else {
-      // And forward to success page
-      res.send(doc);
-    }
   });
 });
 

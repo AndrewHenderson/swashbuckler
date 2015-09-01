@@ -2,17 +2,18 @@
 
 /* Services */
 
-var phonecatServices = angular.module('phonecatServices', ['ngResource']);
+var userServices = angular.module('userServices', ['ngResource']);
 
-phonecatServices.factory('Phones', ['$resource',
+userServices.factory('Users', ['$resource',
   function($resource){
     return $resource('json/persons', {}, {
-      query: {method:'GET', params:$resource.params, isArray:true}
+      query: {method:'GET', params:$resource.params, isArray:true},
+      foo: {method:'POST', params:$resource.params}
     });
   }
 ]);
 
-phonecatServices.factory('Phone', ['$resource',
+userServices.factory('User', ['$resource',
   function($resource){
     return $resource('/json/persons/:id');
   }

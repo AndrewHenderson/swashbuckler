@@ -5,19 +5,19 @@
 var app = angular.module('app', [
   'ngRoute',
   'phonecatFilters',
-  'phonecatControllers',
-  'components'
+  'userControllers'
 ]);
 
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/users', {
-        templateUrl: 'partials/phone-list.html'
+        templateUrl: 'partials/user-list.html',
+        controller: "UserListCtrl"
       }).
       when('/users/:id', {
-        templateUrl: 'partials/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+        templateUrl: 'partials/user-details.html',
+        controller: "UserDetailCtrl"
       }).
       otherwise({
         redirectTo: '/users'
