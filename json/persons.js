@@ -3,34 +3,41 @@ var url = require('url');
 var router = express.Router();
 var Person = require('../schemas/persons.js');
 
-/* GET users */
+// Note All Routes prefixed with 'persons'
 router.get('/', function(req, res) {
   var params = url.parse(req.originalUrl, true).query;
   Person.find(params, function(err, users){
-    res.send(users);
+    if (err) res.send(err);
+    else res.send(users);
   });
 });
 
-/* POST to Add User Service */
 router.post('/', function(req, res) {
-
   var person = new Person(req.body);
-
-  console.dir(person);
-
-  //person.save(function (err) {
-  //  console.log(err);
-  //  if (err) {
-  //    console.log('Bummer');
-  //  } else {
-  //    console.log('Hello!');
-  //  }
-  //});
+  person.save(function (err, doc) {
+    if (err) res.send(err);
+    else res.send(doc);
+  });
 });
 
 router.get('/:id', function(req, res) {
-  Person.findOne({_id: req.params.id}, function(err, user){
-    res.send(user);
+  Person.findOne({_id: req.params.id}, function(err, doc){
+    if (err) res.send(err);
+    else res.send(doc);
+  });
+});
+
+router.put('/:id', function(req, res){
+  Person.update({_id: req.params.id}, req.body, function(err, doc){
+    if (err) res.send(err);
+    else res.send();
+  });
+});
+
+router.delete('/:id', function(req, res){
+  Person.remove({_id: req.params.id}, function(err, doc){
+    if (err) res.send(err);
+    else res.send();
   });
 });
 

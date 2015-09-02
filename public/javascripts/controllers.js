@@ -19,6 +19,4 @@ userControllers.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User',
     $scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
     };
-
-    User.save({name: 'George Costanza'});
   }]);
